@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-align: center;
+  background: #282C34;
+  color: #ABB2C0;
+}
+code {
+  text-align: left;
+  display: inline-block;
+}
+h1 { color: #fff }
+div {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+</head>
+<body>
+
+<div>
+<h1>hapi-api</h1>
+<pre><code>
+GET     /articles                articles#index
+GET     /articles/:id            articles#show
+POST    /articles                articles#create
+PUT     /articles/:id            articles#update
+DELETE  /articles/:id            articles#destroy
+POST    /articles/:id/comments   comments#create
+DELETE  /articles/:id/comments   comments#destroy
+POST    /authentications         authentications#create
+</code></pre>
+</div>
+
+</body>
+</html>
