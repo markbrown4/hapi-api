@@ -1,20 +1,22 @@
 
 const Hapi = require('hapi')
+const { configureRoutes } = require('./routes')
+const { configureAuth } = require('./auth')
 
 const server = Hapi.server({
   host: 'localhost',
   port: 3000
 })
 
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: () => {
-    return [{ so: 'hapi!' }]
-  }
-})
+const main = async () => {
+  await configureAuth(server)
+  await configureRoutes(server)
+  await server.start()
 
-server.start().then(() => {
+  return server
+}
+
+main().then(server => {
   console.log('Server running at:', server.info.uri)
 }).catch(err => {
   console.log(err)
