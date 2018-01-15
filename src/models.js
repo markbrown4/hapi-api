@@ -1,4 +1,5 @@
 
+const path = require('path')
 const Sequelize = require('sequelize')
 const Boom = require('boom')
 
@@ -11,7 +12,7 @@ Sequelize.Model.find = async function (...args) {
 
 const sequelize = new Sequelize(null, null, null, {
   dialect: 'sqlite',
-  storage: 'tmp/db.sqlite'
+  storage: path.join('tmp', 'db.sqlite')
 })
 
 const Article = sequelize.define('article', {
